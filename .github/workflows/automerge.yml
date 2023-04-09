@@ -10,8 +10,7 @@ jobs:
     name: 合并PR
     runs-on: ubuntu-latest
     steps:
-      - id: automerge
-        name: 开始合并
+      - name: 开始合并
         uses: "pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: '${{ secrets.RELEASE_TOKEN }}'
