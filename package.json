@@ -1,0 +1,23 @@
+{
+  "name": "release",
+  "version": "0.0.0",
+  "description": "git推送规范，自动生成log文件、发布release",
+  "scripts": {
+    "changelog": "conventional-changelog -p atom -i CHANGELOG.md -s",
+    "commit": "git-cz",
+    "prepare": "husky install",
+    "test": "echo test out"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

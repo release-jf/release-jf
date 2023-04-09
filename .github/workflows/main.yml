@@ -1,0 +1,38 @@
+name: Main Action
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - v**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Release
+    if: github.ref_name == 'main'
+    uses: ./.github/workflows/release.yml
+    secrets:
+      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      
+  automerge:
+    name: Auto Merge
+    # if: github.ref_name == 'main'
+    needs:
+      - release
+    uses: ./.github/workflows/automerge.yml
+    secrets:
+      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      
+  docs:
+    name: Build Docs
+    if: github.ref_name == 'main'
+    needs:
+      - automerge
+    uses: ./.github/workflows/docs.yml
+    secrets:
+      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      

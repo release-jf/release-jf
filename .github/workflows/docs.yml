@@ -1,0 +1,15 @@
+name: Docs
+
+on:
+  workflow_call:
+    secrets:
+      RELEASE_TOKEN:
+        required: true
+        
+jobs:
+  deploy-gh-pages:
+    name: 发布文档
+    runs-on: ubuntu-latest
+    steps:
+      - name: 安装 pnpm
+        run: echo Build docs ok 6666

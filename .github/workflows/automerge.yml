@@ -1,0 +1,39 @@
+name: Auto Merge
+
+on:
+  workflow_call:
+    secrets:
+      RELEASE_TOKEN:
+        required: true
+jobs:
+  automerge:    
+    name: 合并PR
+    runs-on: ubuntu-latest
+    steps:
+      - id: automerge
+        name: 开始合并
+        uses: "pascalgn/automerge-action@v0.15.6"
+        env:
+          GITHUB_TOKEN: '${{ secrets.RELEASE_TOKEN }}'
+          MERGE_LABELS: ''
+          #title，and，description
+          MERGE_COMMIT_MESSAGE: "Merge PR(#{pullRequest.number}) {pullRequest.title}"
+          #重试次数
+          MERGE_RETRIES: '0'
+          #重试间隔10s
+          MERGE_RETRY_SLEEP: '10000'
+          #合并后删除分支
+          MERGE_DELETE_BRANCH: 'true' 
+
+
+
+
+
+
+
+
+
+
+
+
+
