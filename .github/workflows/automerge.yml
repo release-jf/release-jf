@@ -1,10 +1,21 @@
 name: Auto Merge
 
 on:
-  workflow_call:
-    secrets:
-      RELEASE_TOKEN:
-        required: true
+  pull_request:
+    types:
+      - labeled
+   #   - unlabeled
+   #   - synchronize
+  #    - opened
+  #    - edited
+   #   - ready_for_review
+      - reopened
+      - unlocked
+  status: {}
+ # workflow_call:
+  #  secrets:
+    #  RELEASE_TOKEN:
+      #  required: true
 jobs:
   automerge:    
     name: 合并PR
