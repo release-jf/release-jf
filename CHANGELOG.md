@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/release-jf/release-jf/compare/v1.0.3...v1.0.4) (2023-04-09)
+
+
+### 🐛Bug Fixes
+
+* 重新更新了文件 ([897f103](https://github.com/release-jf/release-jf/commit/897f103eb9dc1d0ecd540c1fcf1f4c2becc1e89a))
+
 ## [1.0.3](https://github.com/release-jf/release-jf/compare/v1.0.2...v1.0.3) (2023-04-09)
 
 
